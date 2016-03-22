@@ -2,7 +2,7 @@ package Abilities;
 
 import javaClasses.Player;
 
-public class DrawCard implements IAbility{
+public class DrawCard extends Ability implements IAbility{
 	
 	private int amount;
 	

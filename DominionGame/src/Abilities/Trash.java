@@ -1,5 +1,5 @@
 package Abilities;
 
-public class Trash {
+public class Trash extends Ability implements IAbility{
 
 }

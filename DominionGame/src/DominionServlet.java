@@ -1,3 +1,4 @@
+/*
 import java.io.*;
 import javax.servlet.*;
 
@@ -7,9 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class DominionServlet
- */
+
+ 
 public class DominionServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -24,3 +24,4 @@ public class DominionServlet extends HttpServlet {
 	
 
 }
+*/

@@ -1,5 +1,5 @@
 package Abilities;
 
-public class RevealCard {
+public class RevealCard extends Ability implements IAbility{
 
 }
