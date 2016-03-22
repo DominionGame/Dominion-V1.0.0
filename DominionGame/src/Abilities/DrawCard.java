@@ -6,13 +6,15 @@ public class DrawCard extends Ability implements IAbility{
 	
 	private int amount;
 	
-	public DrawCard(int amount){
-		
-		this.amount =amount;
-		
+	public DrawCard(int amount)
+	{
+			
+			this.amount =amount;
+			
 	}
-	
-	public void playAbility(Player target){
+	@Override
+	public void playAbility(Player target) 
+	{
 		
 		for(int i = 0; i<amount;i++ ){
 			
@@ -20,4 +22,6 @@ public class DrawCard extends Ability implements IAbility{
 		}
 	}
 	
+	
+
 }

@@ -32,4 +32,12 @@ public class Player {
 	public void addBuy(){
 		remainingBuys++;
 	}
+	
+	public void addCoin(){
+		extraCoins++;
+	}
+	
+	public void gainCard(){
+
+	}
 }
