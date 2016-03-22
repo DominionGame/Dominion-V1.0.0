@@ -15,15 +15,17 @@ public void play(){
 		
 		
 		//+1 current_game_phase
+		Current_Game_Phase +=1;
 	}
 	if(Current_Game_Phase == Game_Phase_Buy){
 		
 		//Buy Phase
-		
+		Current_Game_Phase +=1;
 	}
 	if(Current_Game_Phase == Game_Phase_Discard){
 		
 		//Discard Phase
+		Current_Game_Phase = 0;
 		
 	}
 }
