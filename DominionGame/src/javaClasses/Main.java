@@ -1,7 +1,7 @@
 package javaClasses;
 
 public class Main {
-
+//test brian
 	public static void main(String[] args) {
 		Card c = new Card("Blacksmith",5,"Action Card",2);
 		
