@@ -1,5 +1,7 @@
 package javaClasses;
 
+import Abilities.Ability;
+
 public class Player {
 	private int naam;
 	
@@ -7,13 +9,27 @@ public class Player {
 	private Deck drawPile;
 	private Deck discardPile;
 	
-	private int numberOfActions =1;
-	private int numberOfBuys =1;
+	private int remainingActions =1;
+	private int remainingBuys = 1;
+	
+	private int extraCoins =0;
 	
 	
 	public void play(Card c){
-		for (String ability : c.getAbilities()) {
-		    //voer elke ability uit
+		for (Ability ability : c.getAbilities()) {
+			ability.playAbility(this);
 		}
+	}
+	
+	public void drawCard(){
+		hand.drawCard(drawPile);
+	}
+	
+	public void addAction(){
+		remainingActions++;
+	}
+	
+	public void addBuy(){
+		remainingBuys++;
 	}
 }

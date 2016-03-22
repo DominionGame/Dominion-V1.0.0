@@ -1,5 +1,7 @@
 package javaClasses;
+import java.util.ArrayList;
 import java.util.List;
+import Abilities.Ability;
 
 public class Card {
 
@@ -7,7 +9,7 @@ public class Card {
 	private int value;
 	private String type;
 	private int cost;
-	private List<String> abilities;
+	private ArrayList<Ability> abilities = new ArrayList<Ability>();
 	
 	public Card(String name, int value,String type,int cost){
 		
@@ -18,12 +20,12 @@ public class Card {
 		
 	}
 	
-	public void addAbilities(String ability){
+	public void addAbilities(Ability ability){
 		
 		abilities.add(ability);
 	}
 	
-	public List<String> getAbilities(){
+	public List<Ability> getAbilities(){
 		return abilities;
 	}
 	@Override
