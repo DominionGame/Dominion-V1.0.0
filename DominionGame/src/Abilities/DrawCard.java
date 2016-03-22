@@ -12,7 +12,7 @@ public class DrawCard extends Ability implements IAbility{
 			this.amount =amount;
 			
 	}
-	@Override
+
 	public void playAbility(Player target) 
 	{
 		
@@ -21,7 +21,4 @@ public class DrawCard extends Ability implements IAbility{
 			target.drawCard();
 		}
 	}
-	
-	
-
 }
