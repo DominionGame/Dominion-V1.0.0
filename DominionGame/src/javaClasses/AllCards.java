@@ -23,7 +23,10 @@ public class AllCards {
 			
 		/*03*/cardlist.add(new Card("Chancellor",0,"Action Card",3)); // 10 aanwezig
 			cardlist.get(3).addAbilities(new AddCoin(2));
-			cardlist.get(3).addAbilities(new DiscardCard(/*Alle kaarten die je hebt*/, "self"));
+			
+			// alle kaarten die je hebt (tijdelijk)
+			cardlist.get(3).addAbilities(new DrawCard(999));
+			cardlist.get(3).addAbilities(new DiscardCard(999, "self"));
 		
 		/*04*/cardlist.add(new Card("Village",0,"Action Card",3)); // 10 aanwezig
 			cardlist.get(4).addAbilities(new DrawCard(1));
@@ -46,7 +49,8 @@ public class AllCards {
 			cardlist.get(8).addAbilities(new GainCard(5));
 			
 		/*09*/cardlist.add(new Card("Gardens",0,"Victory",4)); // 10 aanwezig
-			//niet legbaar, enkel nuttig op einde spel
+			// niet legbaar, enkel nuttig op einde spel
+			// Goed voor 1 victoriepunt per 10 kaarten die je hebt, naar beneden afgerond
 		
 		/*10*/cardlist.add(new Card("Militia",0,"Action Card",4)); // 10 aanwezig
 			cardlist.get(10).addAbilities(new AddCoin(2));
@@ -90,7 +94,11 @@ public class AllCards {
 			cardlist.get(19).addAbilities(new AddActions(1));	
 		
 		/*20*/cardlist.add(new Card("Library",0,"Action Card",5)); // 10 aanwezig
-			cardlist.get(20).addAbilities(new DrawCard(/*tot 7*/));
+			cardlist.get(20).addAbilities(new DrawCardUntil(7)); //tot 7!
+			
+			// tijdelijk
+			cardlist.get(20).addAbilities(new SetAside("Action Card"));
+			cardlist.get(20).addAbilities(new DiscardCard("Action Card"));
 			/* Draw until you have 7 cards in hand.
 			 * You may set aside any Action cards drawn this way,
 			 * as you draw them; discard the set aside cards
@@ -103,6 +111,10 @@ public class AllCards {
 			cardlist.get(21).addAbilities(new AddCoin(1));
 		
 		/*22*/cardlist.add(new Card("Mine",0,"Action Card",5)); // 10 aanwezig
+			
+			//tijdelijk
+			cardlist.get(22).addAbilities(new TrashCard("Treasure Card"));
+			cardlist.get(22).addAbilities(new GainCard("Treasure Card")); // koper -> zilver, zilver -> goud
 			/* Trash a Treasure card from your hand.
 			 * Gain a Treasure card costing up to $3 more;
 			 * put it into your hand.
@@ -110,9 +122,13 @@ public class AllCards {
 		
 		/*23*/cardlist.add(new Card("Witch",0,"Action - Attack Card",5)); // 10 aanwezig
 			cardlist.get(23).addAbilities(DrawCard(2));
-			// Iedere andere speler pakt een curse
+			cardlist.get(23).addAbilities(GainCard("Curse","other"));
 		
 		/*24*/cardlist.add(new Card("Adventurer",0,"Action Card",6)); // 10 aanwezig
+		
+			// tijdelijk
+			cardlist.get(24).addAbilities(new RevealCardUntil("Treasure Card", 2));
+			cardlist.get(24).addAbilities(new DiscardCard("nil")); //de andere
 			/* Reveal cards from your deck until you reveal
 			 * 2 Treasure cards. Put those Treasure cards
 			 * in your hand and discard the other revealed cards.
@@ -120,7 +136,7 @@ public class AllCards {
 		
 		
 		// Geldkaarten
-		cardlist.add(new Card("Copper",1,"Treasure",0)); // 46 aanwezig (nadat beide spelers 7 koper hebben om te beginnen)
+		cardlist.add(new Card("Copper",1,"Treasure",0)); // 60 aanwezig
 		cardlist.add(new Card("Silver",2,"Treasure",3)); // 40 aanwezig
 		cardlist.add(new Card("Gold",3,"Treasure",6)); // 30 aanwezig
 		
