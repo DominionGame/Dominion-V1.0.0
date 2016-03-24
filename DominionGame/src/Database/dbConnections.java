@@ -6,8 +6,6 @@ import java.sql.*;
 import javax.swing.*;
 
 public class dbConnections{
-	String DBPAD = "C:/Dominion.mdb";
-	String DB = "jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=" +DBPAD;
 	
 	public void Connect(){
 
@@ -18,25 +16,31 @@ public class dbConnections{
 		
 		//Try reach database
 		try{
-			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			Class.forName("com.mysql.jdbc.Driver");
 		}
 		catch(ClassNotFoundException e){
-			System.out.println("can't find a database");
+			System.out.println("can't make connection");
 		}
 		//try get data
 		try{
-			con = DriverManager.getConnection(DB,"","");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/cards","root","");
 			s = con.createStatement();
-			rs = s.executeQuery("SELECT * FROM Action-cards");
-			
-			while((rs!=null) && (rs.next()))
+			rs = s.executeQuery("SELECT * FROM card");
+
+			while(rs.next())
 			{
-			   System.out.println(rs.getString(1) + " : " + rs.getString(2));
+				String id = rs.getString("ID");
+				String name = rs.getString("Name");
+				String type = rs.getString("Type");
+				String cost = rs.getString("Cost");
+				String ab = rs.getString("Abilitys");
+				String amount = rs.getString("Amount");
+				System.out.println(id +" | "+ name + type +" | "+ cost + " | "+ ab +" | "+ amount);
 			}
 		}
 		catch(Exception ex)
         {
-            System.out.println("geen data");
+            System.out.println("No data" + ex);
         }
 	}
 

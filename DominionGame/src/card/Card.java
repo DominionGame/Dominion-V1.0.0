@@ -1,4 +1,4 @@
-package javaClasses;
+package card;
 import java.util.ArrayList;
 import java.util.List;
 import Abilities.Ability;
@@ -28,9 +28,16 @@ public class Card {
 	public List<Ability> getAbilities(){
 		return abilities;
 	}
+	
+	public String getType(){
+		return type;
+	}
+	public int getCost(){
+		return cost;
+	}
 	@Override
 	public String toString() {
-		return String.format("Name: %s | Value: %s | Type: %s | cost: %s",name,value,type,cost);
+		return String.format("Name: %s | Value: %s | Type: %s | cost: %s | Aantal Abilities: %s",name,value,type,cost,abilities.size());
 	}
 	
 	
