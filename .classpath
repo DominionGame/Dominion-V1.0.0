@@ -2,6 +2,5 @@
 <classpath>
 	<classpathentry kind="src" path="DominionGame/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="DominionGame/WebContent/servlet-api.jar"/>
 	<classpathentry kind="output" path="DominionGame/build/classes"/>
 </classpath>
