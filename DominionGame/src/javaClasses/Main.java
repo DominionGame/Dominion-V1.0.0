@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Abilities.*;
+import Database.dbConnections;
 import card.Card;
 
 public class Main {
@@ -11,6 +12,8 @@ public class Main {
 		
 		Player p1 = new Player("thomas");
 		
+		dbConnections dbc = new dbConnections();
+		dbc.Connect();
 		
 		/*
 		System.out.println(System.getProperty("line.separator"));
