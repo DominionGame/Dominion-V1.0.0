@@ -1,6 +1,9 @@
 package javaClasses;
 
+import java.util.ArrayList;
+
 public class Game {
+private ArrayList<Player> players = new ArrayList<Player>(); 	
 private int Current_Game_Phase;
 private static final int Game_Phase_Action = 0;	
 private static final int Game_Phase_Buy = 1;

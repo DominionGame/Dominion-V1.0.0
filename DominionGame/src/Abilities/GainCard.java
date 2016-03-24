@@ -1,24 +1,24 @@
 package Abilities;
-
+import javaClasses.Deck;
 import javaClasses.Player;
 
 public class GainCard extends Ability implements IAbility{
 	
-	private int amount;
+	private int maxCost;
+	private Deck targetedCardPile;
 	
-	public GainCard(int amount)
+	public GainCard(int maxCost)
 	{
 			
-			this.amount =amount;
+			this.maxCost = maxCost;
 			
 	}
 	
 	public void playAbility(Player target) 
 	{
-		
-		for(int i = 0; i<amount;i++ ){
+				
 			
-			target.gainCard();
-		}
+			target.gainCard(maxCost,targetedCardPile);
+		
 	}
 }

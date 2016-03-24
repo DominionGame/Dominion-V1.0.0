@@ -21,4 +21,5 @@ public class AddActions extends Ability implements IAbility{
 			target.addAction();
 		}
 	}
+	
 }

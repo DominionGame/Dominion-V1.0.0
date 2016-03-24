@@ -21,4 +21,7 @@ public class AddCoin extends Ability implements IAbility{
 			target.addCoin();
 		}
 	}
+	
+	
+	
 }

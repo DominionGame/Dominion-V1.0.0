@@ -2,6 +2,8 @@ package javaClasses;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import card.Card;
+
 public class Deck extends ArrayList<Card> {
 
 	public void addCard(Card c){
@@ -9,9 +11,10 @@ public class Deck extends ArrayList<Card> {
 	}
 	
 	public void drawCard(Deck pile){
-		
+
 		this.add(pile.get(pile.size()-1));
 		pile.remove(pile.get(pile.size()-1));
+		
 	}
 	
 	public void shuffle(){
