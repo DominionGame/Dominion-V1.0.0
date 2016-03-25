@@ -12,8 +12,7 @@ public class Main {
 		
 		Player p1 = new Player("thomas");
 		
-		dbConnections dbc = new dbConnections();
-		dbc.Connect();
+
 		
 		/*
 		System.out.println(System.getProperty("line.separator"));
