@@ -16,9 +16,11 @@ public class GainCard extends Ability implements IAbility{
 	
 	public void playAbility(Player target) 
 	{
-				
-			
+							
 			target.gainCard(maxCost,targetedCardPile);
 		
+	}
+	public void settargetPile(Deck targetedCardPile){
+		this.targetedCardPile = targetedCardPile;
 	}
 }

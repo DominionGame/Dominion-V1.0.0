@@ -9,7 +9,7 @@ public class AddCoin extends Ability implements IAbility{
 	public AddCoin(int amount)
 	{
 			
-			this.amount =amount;
+			this.amount = amount;
 			
 	}
 
