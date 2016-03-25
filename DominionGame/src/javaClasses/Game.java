@@ -3,7 +3,8 @@ package javaClasses;
 import java.util.ArrayList;
 
 public class Game {
-private ArrayList<Player> players;	
+public ArrayList<Player> players;
+public ArrayList<Deck> kingdomPiles;
 public Deck trashPile;
 public String name;
 private int Current_Game_Phase;
@@ -15,7 +16,7 @@ public Game(String name){
 	this.name = name;
 	players = new ArrayList<Player>(); 
 	trashPile = new Deck();
-	
+	kingdomPiles = new ArrayList<Deck>();
 }
 public void play(){
 	

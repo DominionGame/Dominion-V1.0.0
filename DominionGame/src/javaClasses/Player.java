@@ -15,13 +15,15 @@ public class Player {
 	public Deck drawPile = new Deck();
 	public Deck discardPile = new Deck();
 	public Deck inPlay = new Deck();
-	//eventueel een Deck van "Actieve"/"Gespeelde" kaarten?
-	//zodat ze niet rechtstreeks naar de discardPile gaan maar van uit het speelveld naar de discard
+	
 	
 	
 	private int remainingActions =1;
 	private int remainingBuys = 1;	
 	private int remainingCoins =0;
+	
+	private int multiplyAmount = 1;
+	private boolean multiplyNext = false;
 	
 	public Player(String name){		
 		this.name = name;
@@ -33,11 +35,20 @@ public class Player {
 	
 	
 	public void play(Card c){
+		if(multiplyNext == true){	
+			for(int i = 0;i< multiplyAmount;i++){
+				for (Ability ability : c.getAbilities()) {
 		
-		for (Ability ability : c.getAbilities()) {
-			ability.playAbility(this);
+					ability.playAbility(this);
+				}
+			}
+			multiplyNext = false;
+		}else{
+			for (Ability ability : c.getAbilities()) {
+				
+				ability.playAbility(this);
+			}
 		}
-		
 	}
 	public Game getGame() {
 		return game;
@@ -60,6 +71,10 @@ public class Player {
 	
 	public void addCoin(){
 		remainingCoins++;
+	}
+	public void multiplyNextAction(int amount){
+		this.multiplyAmount = 2;
+		this.multiplyNext = true;
 	}
 	
 	public void gainCard(int maxCost,Deck pileToGainFrom){
@@ -96,14 +111,12 @@ public class Player {
 				}
 			
 	}
+	
 	//kaarten toevoegen aan drawpile
 	public void addCardtoDrawPile(Card card){
 		
 		drawPile.add(card);
 		//voeg kaart rechtstreeks toe aan drawPile
-	}
-	public Card getCard(Card card){
-		return card;
 	}
 	public void printPiles(){
 		

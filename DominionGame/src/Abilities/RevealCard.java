@@ -21,7 +21,7 @@ private Card targetedCard;
 		
 		for(int i = 0; i<amount;i++ ){
 			
-			target.getCard(targetedCard);
+			//target.getCard(targetedCard);
 		}
 	}
 }

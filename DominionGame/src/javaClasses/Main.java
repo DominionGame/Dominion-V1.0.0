@@ -11,17 +11,23 @@ public class Main {
 		Game game = new Game("thomasgame");
 		
 		
-		Player p1 = new Player("thomas",game);
-		p1.addCardtoDrawPile(new Card("thomas",5,"lel",2));
-		p1.addCardtoDrawPile(new Card("thomas",5,"lel",2));
-		p1.drawCard();
-		p1.drawCard();
-		Card trasher = new Card("trasher",5,"lel",2);
-		trasher.addAbilities(new AddActions(2));
-		trasher.addAbilities(new Trash(1));
-		p1.play(trasher);
-		p1.printPiles();
-
+		Player player1 = new Player("thomas",game);
+		
+		Card actioncard = new Card("Markt",5,"Action",3);
+		actioncard.addAbilities(new AddActions(2));
+		
+		Card throneroom = new Card("Markt",5,"Action",3);
+		throneroom.addAbilities(new MultiplyNext(2));
+		
+		player1.play(throneroom);
+		player1.play(actioncard);
+		
+		
+		System.out.println(player1.toString());
+		player1.play(actioncard);
+		
+		
+		System.out.println(player1.toString());
 		
 	}
 	
