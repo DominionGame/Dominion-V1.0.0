@@ -9,25 +9,21 @@ public class Main {
 	public static void main(String[] args) {
 			
 		Game game = new Game("thomasgame");
+		Deck deck = new Deck();
+		for(int i=0;i<5;i++){
+		deck.add(new Card("markt",5,"action",2));
+		}
 		
+		game.kingdomPiles.add(deck);
 		
 		Player player1 = new Player("thomas",game);
 		
-		Card actioncard = new Card("Markt",5,"Action",3);
-		actioncard.addAbilities(new AddActions(2));
+		Card gaincard = new Card("gainer",5,"action",2);
+		gaincard.addAbilities(new GainCard(6));
 		
-		Card throneroom = new Card("Markt",5,"Action",3);
-		throneroom.addAbilities(new MultiplyNext(2));
+		player1.play(gaincard);
 		
-		player1.play(throneroom);
-		player1.play(actioncard);
-		
-		
-		System.out.println(player1.toString());
-		player1.play(actioncard);
-		
-		
-		System.out.println(player1.toString());
+		player1.printPiles();
 		
 	}
 	
