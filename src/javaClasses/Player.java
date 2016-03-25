@@ -1,14 +1,20 @@
 package javaClasses;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 import Abilities.Ability;
 import card.*;
 
 public class Player {
 	private String name;
-	
-	private Deck hand = new Deck();
-	private Deck drawPile = new Deck();
-	private Deck discardPile = new Deck();
+	private Game game;
+
+	public Deck hand = new Deck();
+	public Deck drawPile = new Deck();
+	public Deck discardPile = new Deck();
+	public Deck inPlay = new Deck();
 	//eventueel een Deck van "Actieve"/"Gespeelde" kaarten?
 	//zodat ze niet rechtstreeks naar de discardPile gaan maar van uit het speelveld naar de discard
 	
@@ -20,6 +26,11 @@ public class Player {
 	public Player(String name){		
 		this.name = name;
 	}
+	public Player(String name, Game game){		
+		this.name = name;
+		this.game = game;
+	}
+	
 	
 	public void play(Card c){
 		
@@ -28,7 +39,9 @@ public class Player {
 		}
 		
 	}
-	
+	public Game getGame() {
+		return game;
+	}
 	public void drawCard(){
 		hand.drawCard(drawPile);
 		//trek een kaart van de drawpile
@@ -62,8 +75,26 @@ public class Player {
 		}
 		
 	}
-	public void trashCard(Card c){
-		
+	public void trashCard(){		
+			
+				try{
+					System.out.println("What card would you like to trash from your hand?");
+					System.out.println("Give an index between" + 1 + " and " +hand.size());
+					Scanner in = new Scanner(System.in);
+				    
+					int indexCard = in.nextInt()-1;
+					
+					game.trashPile.add(hand.get(indexCard));
+					hand.remove(indexCard);
+
+	
+
+				}catch(Exception e){
+					e.printStackTrace();
+					
+					//System.out.println("Please give the index of your hand to delete from");
+				}
+			
 	}
 	//kaarten toevoegen aan drawpile
 	public void addCardtoDrawPile(Card card){
@@ -95,6 +126,17 @@ public class Player {
 	public String toString() {
 		return String.format("Name: %s | Remaining Actions: %s | Remaining Buys: %s | Remaining Coins: %s",name,remainingActions,remainingBuys,remainingCoins);
 	}
+	public int getRemainingCoins() {
+		return remainingCoins;
+	}
+	public int getRemainingBuys() {
+		return remainingBuys;
+	}
+	public int getRemainingActions() {
+
+		return remainingActions;
+	}
+	
 	
 	
 }
