@@ -9,22 +9,29 @@ public class Main {
 	public static void main(String[] args) {
 			
 		Game game = new Game("thomasgame");
-		Deck deck = new Deck();
-		for(int i=0;i<5;i++){
-		deck.add(new Card("markt",5,"action",2));
+		Card treasure = new Card("Copper",2,"Treasure",5);
+		Card thief = new Card("thief",2,"Attack",5);
+		thief.addAbilities(new Thief(2));
+		
+		game.addPlayer(new Player("thomas",game));
+		game.addPlayer(new Player("bert",game));
+		//game.addPlayer(new Player("brian",game));
+		
+		for(Player p: game.players){
+			
+			for(int i =0; i < 5;i++){
+			p.addCardtoDrawPile(treasure);
+			}
+			
 		}
 		
-		game.kingdomPiles.add(deck);
+		game.players.get(0).play(thief);
+		game.players.get(0).printPiles();
+		game.players.get(1).printPiles();
 		
-		Player player1 = new Player("thomas",game);
-		
-		Card gaincard = new Card("gainer",5,"action",2);
-		gaincard.addAbilities(new GainCard(6));
-		
-		player1.play(gaincard);
-		
-		player1.printPiles();
-		
+		System.out.println("Trashpile");
+		for(Card c:game.trashPile){
+			System.out.println(c.toString());
+		}
 	}
-	
 }

@@ -7,7 +7,9 @@ public class Game {
 public ArrayList<Player> players;
 public ArrayList<Deck> kingdomPiles;
 public Deck trashPile;
+
 public String name;
+
 private int Current_Game_Phase;
 private static final int Game_Phase_Action = 0;	
 private static final int Game_Phase_Buy = 1;
@@ -44,9 +46,13 @@ public void play(){
 	
 }
 
+public void addPlayer(Player p){
+	this.players.add(p);
+}
+
 public Deck GetTargetPile(){
 	try{
-		System.out.println("Pick the kingdom card pile number you wish to gain from ("+1+" to " + kingdomPiles.size());
+		System.out.println("Pick the kingdom card pile number you wish to gain from ( "+1+" to " + kingdomPiles.size());
 		Scanner in = new Scanner(System.in);
 	    
 		int index = in.nextInt()-1;

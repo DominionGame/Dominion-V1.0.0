@@ -9,6 +9,9 @@ import card.*;
 
 public class Player {
 	private String name;
+	public String getName() {
+		return name;
+	}
 	private Game game;
 
 	public Deck hand = new Deck();

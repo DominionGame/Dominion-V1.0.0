@@ -26,6 +26,7 @@ public class GainCard extends Ability implements IAbility{
 			if(targetedCardPile.get(0).getCost() <= maxCost){
 			
 				target.discardPile.drawCard(targetedCardPile);
+				targetedCardPile = null;
 				
 			}
 			
