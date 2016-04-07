@@ -93,7 +93,7 @@ public class Player {
 		}
 		
 	}
-	public void trashCard(){		
+	public Card trashCard(){		
 			
 				try{
 					System.out.println("What card would you like to trash from your hand?");
@@ -101,15 +101,17 @@ public class Player {
 					Scanner in = new Scanner(System.in);
 				    
 					int indexCard = in.nextInt()-1;
+					Card trashedCard = hand.get(indexCard);
+					
 					
 					game.trashPile.add(hand.get(indexCard));
 					hand.remove(indexCard);
-
+					return trashedCard;
 	
 
 				}catch(Exception e){
 					e.printStackTrace();
-					
+					return null;
 					//System.out.println("Please give the index of your hand to delete from");
 				}
 			

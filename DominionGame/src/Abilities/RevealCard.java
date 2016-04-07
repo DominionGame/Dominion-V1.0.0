@@ -19,9 +19,6 @@ private Card targetedCard;
 	public void playAbility(Player target) 
 	{
 		
-		for(int i = 0; i<amount;i++ ){
-			
-			
-		}
+
 	}
 }

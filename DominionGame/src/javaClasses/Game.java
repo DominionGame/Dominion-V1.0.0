@@ -3,9 +3,12 @@ package javaClasses;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import card.Card;
+
 public class Game {
 public ArrayList<Player> players;
 public ArrayList<Deck> kingdomPiles;
+public Deck cursePile;
 public Deck trashPile;
 
 public String name;

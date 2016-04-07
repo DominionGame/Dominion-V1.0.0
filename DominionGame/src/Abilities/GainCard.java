@@ -34,7 +34,5 @@ public class GainCard extends Ability implements IAbility{
 			
 			
 	}
-	public void settargetPile(Deck targetedCardPile){
-		this.targetedCardPile = targetedCardPile;
-	}
+
 }

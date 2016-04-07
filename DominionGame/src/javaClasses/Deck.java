@@ -16,6 +16,12 @@ public class Deck extends ArrayList<Card> {
 		pile.remove(pile.get(pile.size()-1));
 		
 	}
+	public void takeCard(int index,Deck pile){
+
+		this.add(pile.get(index));
+		pile.remove(pile.get(index));
+		
+	}
 	
 	public void shuffle(){
 		
@@ -27,10 +33,12 @@ public class Deck extends ArrayList<Card> {
 	}
 	
 	public void printDeck() {
+		int i =1;
 		for (Card card : this) {
-		    System.out.println(card.toString());
+		    System.out.println(i + " | "+card.toString());
+		    i++;
 		}
-
+		System.out.println(System.lineSeparator());
 	}
 	
 	
