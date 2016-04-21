@@ -11,6 +11,9 @@ public class Card {
 	private int cost;
 	private ArrayList<Ability> abilities = new ArrayList<Ability>();
 	
+	public Card(){}
+	//empty constructor
+	
 	public Card(String name, int value,String type,int cost){
 		
 	this.name = name;
@@ -31,6 +34,9 @@ public class Card {
 	
 	public String getType(){
 		return type;
+	}
+	public String getName(){
+		return name;
 	}
 	public int getCost(){
 		return cost;

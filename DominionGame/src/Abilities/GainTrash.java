@@ -14,9 +14,9 @@ public class GainTrash extends Ability implements IAbility{
 	@Override
 	public void playAbility(Player target) {
 		
-		int maxCost = target.trashCard().getCost();
-		GainCard gain = new GainCard(maxCost);
-		gain.playAbility(target);
+		//int maxCost = target.trashCard().getCost();
+		//GainCard gain = new GainCard(maxCost);
+		//gain.playAbility(target);
 		
 	}
 	

@@ -2,20 +2,27 @@ package Abilities;
 
 import javaClasses.Player;
 
-public class Adventurer extends Ability implements IAbility{
+public class Adventurer extends Ability implements IAbility {
 	int amount;
-	
-	public Adventurer(int amount) {
-		this.amount = amount;
+	String type;
+	public Adventurer(int amount,String type) {
+		this.amount=amount;
+		this.type=type;
 	}
 
 	@Override
 	public void playAbility(Player target) {
-		int amountleft = amount;
-		while(amountleft != 0){
-			
-			
+		int amountLeft = amount;
+		while(amountLeft != 0){
+			target.revealCard(target.drawPile.get(target.drawPile.size()-1));
+			if(target.drawPile.get(target.drawPile.size()-1).getType() == type){
+				target.hand.drawCard(target.drawPile);
+				amountLeft--;
+			}else{
+				target.discardPile.drawCard(target.drawPile);
+			}			
 		}
+		
 	}
 
 	

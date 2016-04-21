@@ -79,6 +79,11 @@ public class Player {
 		this.multiplyAmount = 2;
 		this.multiplyNext = true;
 	}
+	public void revealCard(Card c){
+		System.out.println(System.lineSeparator());
+		System.out.println("Revealed by "+this.name + ": "+c);
+		System.out.println(System.lineSeparator());
+	}
 	
 	public void gainCard(int maxCost,Deck pileToGainFrom){
 		
@@ -93,26 +98,16 @@ public class Player {
 		}
 		
 	}
-	public Card trashCard(){		
+	public void trashCard(Card card, Deck cardpile){		
 			
-				try{
-					System.out.println("What card would you like to trash from your hand?");
-					System.out.println("Give an index between" + 1 + " and " +hand.size());
-					Scanner in = new Scanner(System.in);
-				    
-					int indexCard = in.nextInt()-1;
-					Card trashedCard = hand.get(indexCard);
-					
-					
-					game.trashPile.add(hand.get(indexCard));
-					hand.remove(indexCard);
-					return trashedCard;
+				try{					
+					game.trashPile.add(card);
+					cardpile.remove(card);
+
 	
 
 				}catch(Exception e){
 					e.printStackTrace();
-					return null;
-					//System.out.println("Please give the index of your hand to delete from");
 				}
 			
 	}

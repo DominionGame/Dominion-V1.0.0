@@ -12,7 +12,7 @@ public class drawCurse extends Ability implements IAbility{
 
 	@Override
 	public void playAbility(Player target) {
-		
+		//Attack
 		for(Player player: target.getGame().players){
 			if(!player.getName().equals(target.getName()))
 			{

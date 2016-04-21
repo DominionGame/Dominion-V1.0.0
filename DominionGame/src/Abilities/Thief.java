@@ -14,6 +14,7 @@ public class Thief extends Ability implements IAbility {
 			boolean stealCard = true;
 	}
 	public void playAbility(Player target){
+		//Attack
 		stealCard = true;
 		for(Player player: target.getGame().players)
 		{
