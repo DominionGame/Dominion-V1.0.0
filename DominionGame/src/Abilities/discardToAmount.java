@@ -18,7 +18,7 @@ public class discardToAmount extends Ability implements IAbility{
 		Scanner in = new Scanner(System.in);
 		
 		for(Player player : target.getGame().players){
-			if(!player.getName().equals(target.getName())){
+			if(!player.getName().equals(target.getName())&& player.shield() == false){
 				while(player.hand.size() > amount){	
 					player.hand.printDeck();
 					System.out.println("Give the index of the card to discard from your hand.");

@@ -15,7 +15,7 @@ public class RevealDiscard extends Ability implements IAbility {
 	public void playAbility(Player target) {
 		//Attack
 		for(Player player: target.getGame().players){
-			if(!player.getName().equals(target.getName()))
+			if(!player.getName().equals(target.getName()) && player.shield() == false)
 			{
 				for(int i=0;i<amount;i++)
 				{

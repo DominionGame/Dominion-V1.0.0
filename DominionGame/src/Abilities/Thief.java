@@ -19,7 +19,7 @@ public class Thief extends Ability implements IAbility {
 		for(Player player: target.getGame().players)
 		{
 			//Voor elke speler behalve deze die de ability speelt.
-			if(player.getName() != target.getName())
+			if(player.getName() != target.getName()&& player.shield() == false)
 			{
 				for(int i = 0; i < amount ;i++)
 				{
