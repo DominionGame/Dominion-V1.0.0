@@ -111,6 +111,17 @@ public class Player {
 				}
 			
 	}
+	public boolean shield(){
+		Action_Reaction_Card card = new Action_Reaction_Card();
+		for(Card c:this.hand){
+			if(c.getClass()== Action_Reaction_Card.class){
+				card = (Action_Reaction_Card)c;
+				System.out.println(this.getName() +" has a reaction card.");
+				return card.reactToAttack();
+			}
+		}
+		return false;
+	}
 	
 	//kaarten toevoegen aan drawpile
 	public void addCardtoDrawPile(Card card){

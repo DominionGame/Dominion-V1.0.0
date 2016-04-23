@@ -7,7 +7,8 @@ import card.Card;
 
 public class Game {
 public ArrayList<Player> players;
-public ArrayList<Deck> kingdomPiles;
+public ArrayList<Deck> supplyPiles;
+
 public Deck cursePile;
 public Deck trashPile;
 
@@ -22,7 +23,8 @@ public Game(String name){
 	this.name = name;
 	players = new ArrayList<Player>(); 
 	trashPile = new Deck();
-	kingdomPiles = new ArrayList<Deck>();
+	cursePile = new Deck();
+	supplyPiles = new ArrayList<Deck>();
 }
 public void play(){
 	
@@ -55,11 +57,11 @@ public void addPlayer(Player p){
 
 public Deck GetTargetPile(){
 	try{
-		System.out.println("Pick the kingdom card pile number you wish to gain from ( "+1+" to " + kingdomPiles.size());
+		System.out.println("Pick the kingdom card pile number you wish to gain from ( "+1+" to " + supplyPiles.size());
 		Scanner in = new Scanner(System.in);
 	    
 		int index = in.nextInt()-1;
-		return kingdomPiles.get(index);
+		return supplyPiles.get(index);
 
 		
 	}catch(Exception e){
@@ -69,7 +71,14 @@ public Deck GetTargetPile(){
 	}
 
 }
-
+public void Fillpile(int index,Card c, int amount){
+	this.supplyPiles.add(new Deck());
+	for(int i=0;i<amount;i++){
+		this.supplyPiles.get(index).add(c);
+	}
+	
 }
+}
+
 
 
