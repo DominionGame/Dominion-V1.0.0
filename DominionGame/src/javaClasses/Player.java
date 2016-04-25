@@ -23,8 +23,14 @@ public class Player {
 	
 	private int remainingActions =1;
 	private int remainingBuys = 1;	
+	public void setRemainingBuys(int remainingBuys) {
+		this.remainingBuys = remainingBuys;
+	}
 	private int remainingCoins =0;
 	
+	public void setRemainingCoins(int remainingCoins) {
+		this.remainingCoins = remainingCoins;
+	}
 	private int multiplyAmount = 1;
 	private boolean multiplyNext = false;
 	
@@ -52,11 +58,31 @@ public class Player {
 				ability.playAbility(this);
 			}
 		}
+		this.inPlay.add(c);
+		this.hand.remove(c);
+		remainingActions--;
+	}
+	public void Reset(){
+		remainingActions =1;
+		remainingBuys = 1;	
+		remainingCoins =0;
+		
+		multiplyAmount = 1;
+		multiplyNext = false;
 	}
 	public Game getGame() {
 		return game;
 	}
 	public void drawCard(){
+		if(drawPile.isEmpty()){
+			drawPile.addAll(discardPile);
+			drawPile.shuffle();
+			discardPile.clear();
+			
+		}
+		if(drawPile.get(drawPile.size()-1).getType().equalsIgnoreCase("Treasure")){
+			this.setRemainingCoins(getRemainingCoins() + drawPile.get(drawPile.size()-1).getValue());
+		}
 		hand.drawCard(drawPile);
 		//trek een kaart van de drawpile
 	}
@@ -129,6 +155,25 @@ public class Player {
 		drawPile.add(card);
 		//voeg kaart rechtstreeks toe aan drawPile
 	}
+	public void drawHand(){
+		for(int i =0;i<5;i++){
+			drawCard();
+		}
+	}
+	public void discardHand(){
+		this.discardPile.addAll(this.hand);
+		this.hand.clear();
+	}
+	public boolean hasActionCards(){
+		
+		for(Card c:this.hand){
+			if(c.getType().equalsIgnoreCase("Action") || c.getType().equalsIgnoreCase("Action-Attack") || c.getType().equalsIgnoreCase("Action-Reaction") ){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void printPiles(){
 		
 		System.out.println("-------------Hand-------------");

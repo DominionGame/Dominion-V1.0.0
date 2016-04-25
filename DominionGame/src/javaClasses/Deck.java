@@ -11,7 +11,7 @@ public class Deck extends ArrayList<Card> {
 	}
 	
 	public void drawCard(Deck pile){
-
+		
 		this.add(pile.get(pile.size()-1));
 		pile.remove(pile.get(pile.size()-1));
 		
@@ -27,9 +27,6 @@ public class Deck extends ArrayList<Card> {
 		
 		Collections.shuffle(this);
 		
-	}
-	public void checkEmpty(){
-		//
 	}
 	
 	public void printDeck() {

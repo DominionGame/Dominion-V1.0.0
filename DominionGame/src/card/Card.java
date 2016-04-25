@@ -7,6 +7,9 @@ public class Card {
 
 	private String name;
 	private int value;
+	public int getValue() {
+		return value;
+	}
 	private String type;
 	private int cost;
 	private ArrayList<Ability> abilities = new ArrayList<Ability>();
